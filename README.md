@@ -1,1 +1,1 @@
-# JohnSmilgasJScourse
+# John Smilga's JavaScript course
