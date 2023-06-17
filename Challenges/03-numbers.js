@@ -19,7 +19,10 @@ console.log(averageScore);
 
 let plates = 20;
 const people = 7;
-plates = plates - people;
+// plates = plates - people;
+// Or, if we want to share all the plates among the people:
+plates = plates % people;
+
 console.log(plates);
 
 plates = ++plates;
