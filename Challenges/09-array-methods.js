@@ -47,6 +47,7 @@
 //    }
 // 2. assign to survey and log
 
+/*
 const students = [
 	{
 		id: 1,
@@ -78,7 +79,7 @@ const students = [
 		score: 87,
 		favoriteSubject: 'art',
 	},
-];
-// 'studients' array moved to data.js (but temp kept here, until fix)
+]; */
+// 'studients' array moved to data.js
 
 console.log(students);

@@ -30,3 +30,5 @@ const students = [
 		favoriteSubject: 'art',
 	},
 ];
+
+// console.log(students);
