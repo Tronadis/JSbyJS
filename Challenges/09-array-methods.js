@@ -102,6 +102,26 @@ const specificId = students.find(function (theOne) {
 // 2. divide by the length of the students array
 // 3. assign to 'averageScore' and log
 
+const totalOfScores = students.reduce(function (acc, curr) {
+	// console.log(`total: ${acc}`);
+	// console.log(`current item: ${curr.score}`);
+	acc += curr.score;
+	return acc;
+}, 0);
+const averageScore = totalOfScores / students.length;
+// console.log(`Number of students: ${students.length}`);
+// console.log(`Total of scores: ${totalOfScores}`);
+// console.log(`Average score: ${averageScore}`);
+
+// Teacher's more compact formula (only one variable):
+const averageScore2 =
+	students.reduce(function (acc, curr) {
+		// console.log(`total: ${acc}`);
+		// console.log(`current item: ${curr.score}`);
+		acc += curr.score;
+		return acc;
+	}, 0) / students.length;
+// console.log(`Average score(2): ${averageScore2}`);
 // #### survey
 
 // 1. list favorite subjects with reduce
