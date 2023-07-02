@@ -83,3 +83,4 @@ const students = [
 // 'studients' array moved to data.js
 
 console.log(students);
+sayName('John');

@@ -32,3 +32,7 @@ const students = [
 ];
 
 // console.log(students);
+
+function sayName(name) {
+	console.log(name);
+}
