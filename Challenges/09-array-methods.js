@@ -60,9 +60,10 @@
 // 2. assign to 'updatedStudents' variable and log
 
 let updatedStudents = students.map(function (person) {
-	return person, { ...person, role: 'student' };
+	return { ...person, role: 'student' };
 });
 console.log(updatedStudents);
+console.log(students);
 
 // #### highScores
 
