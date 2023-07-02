@@ -61,14 +61,30 @@
 
 let updatedStudents = students.map(function (person) {
 	return { ...person, role: 'student' };
+	// This is also possible:
+	/* person.role = 'student';
+	return person; */
+	// but it also modifies the original array.
 });
-console.log(updatedStudents);
-console.log(students);
+// console.log(updatedStudents);
+// console.log(students);
 
 // #### highScores
 
 // 1. filter array and return only scores >= 80
 // 2. assign to 'highScores' variable and log
+
+const highScores = students.filter(function (student) {
+	return student.score >= 90;
+	// alternative syntaxes:
+	// if (student.score >= 90) return student;
+	// or even:
+	/* if (student.score >= 90) {
+	 		return student;  // truthy
+	 }; */
+	// Longer, but prob better when part of more complex logic.
+});
+// console.log(highScores);
 
 // #### specificId
 
