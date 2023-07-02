@@ -15,11 +15,54 @@
 // - other ways to achieve the same result (ES6 modules, fetch DB )
 // - not limited to just static data
 
+/*
+		const students = [
+			{
+				id: 1,
+				name: 'Peter',
+				score: 80,
+				favoriteSubject: 'math',
+			},
+			{
+				id: 2,
+				name: 'Sarah',
+				score: 90,
+				favoriteSubject: 'math',
+			},
+			{
+				id: 3,
+				name: 'Amadou',
+				score: 85,
+				favoriteSubject: 'history',
+			},
+			{
+				id: 4,
+				name: 'Poonam',
+				score: 92,
+				favoriteSubject: 'math',
+			},
+			{
+				id: 5,
+				name: 'Andrzei',
+				score: 87,
+				favoriteSubject: 'art',
+			},
+		]; */
+// 'studients' array moved to data.js
+// tests:
+// console.log(students);
+// sayName('John');
+
 // #### updatedStudents
 
 // 1. add role:'student' property to each object
 //    using MAP method
 // 2. assign to 'updatedStudents' variable and log
+
+let updatedStudents = students.map(function (person) {
+	return person, { ...person, role: 'student' };
+});
+console.log(updatedStudents);
 
 // #### highScores
 
@@ -46,41 +89,3 @@
 //    math: 3
 //    }
 // 2. assign to survey and log
-
-/*
-const students = [
-	{
-		id: 1,
-		name: 'Peter',
-		score: 80,
-		favoriteSubject: 'math',
-	},
-	{
-		id: 2,
-		name: 'Sarah',
-		score: 90,
-		favoriteSubject: 'math',
-	},
-	{
-		id: 3,
-		name: 'Amadou',
-		score: 85,
-		favoriteSubject: 'history',
-	},
-	{
-		id: 4,
-		name: 'Poonam',
-		score: 92,
-		favoriteSubject: 'math',
-	},
-	{
-		id: 5,
-		name: 'Andrzei',
-		score: 87,
-		favoriteSubject: 'art',
-	},
-]; */
-// 'studients' array moved to data.js
-
-console.log(students);
-sayName('John');

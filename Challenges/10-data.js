@@ -30,9 +30,8 @@ const students = [
 		favoriteSubject: 'art',
 	},
 ];
-
+// tests:
 // console.log(students);
-
-function sayName(name) {
-	console.log(name);
-}
+// function sayName(name) {
+// 	console.log(name);
+// };
