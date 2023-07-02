@@ -91,6 +91,11 @@ const highScores = students.filter(function (student) {
 // 1. find specific id in array
 // 2. assign to 'specificId' variable and log
 
+const specificId = students.find(function (theOne) {
+	return theOne.id === 1;
+});
+// console.log(specificId);
+
 // #### averageScore
 
 // 1. sum up all student.score values with reduce
