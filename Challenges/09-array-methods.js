@@ -122,6 +122,7 @@ const averageScore2 =
 		return acc;
 	}, 0) / students.length;
 // console.log(`Average score(2): ${averageScore2}`);
+
 // #### survey
 
 // 1. list favorite subjects with reduce
@@ -131,3 +132,24 @@ const averageScore2 =
 //    math: 3
 //    }
 // 2. assign to survey and log
+
+const survey = students.reduce(
+	function (acc, curr) {
+		acc[curr['favoriteSubject']] = (acc[curr['favoriteSubject']] || 0) + 1;
+		return acc;
+	},
+	{ math: 0, history: 0, art: 0 }
+);
+// console.log(survey);
+
+// Teacher:
+const survey2 = students.reduce(function (survey2, student) {
+	const favSubject = student.favoriteSubject;
+	if (survey2[favSubject]) {
+		survey2[favSubject] = survey2[favSubject] + 1; // If already found, increment the value.
+	} else {
+		survey2[favSubject] = 1; // Else, create a new object property!
+	}
+	return survey2;
+}, {});
+// console.log(survey2);
