@@ -73,3 +73,13 @@ prevBtn.addEventListener('click', function () {
 	}
 	showPerson(currentItem);
 });
+
+// show person randomly
+randomBtn.addEventListener('click', function () {
+	currentItem = reviews[Math.floor(Math.random() * reviews.length)];
+	console.log(img); // as expected
+	console.log(currentItem); // as expected
+	showPerson(currentItem); // item is undefined. Why?
+}); // Same showPerson() that works for prevBtn and nextBtn 🤔
+// and even here item provides author job and info
+// Not connectivity issue.
