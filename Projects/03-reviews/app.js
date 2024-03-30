@@ -76,10 +76,9 @@ prevBtn.addEventListener('click', function () {
 
 // show person randomly
 randomBtn.addEventListener('click', function () {
-	currentItem = reviews[Math.floor(Math.random() * reviews.length)];
-	console.log(img); // as expected
-	console.log(currentItem); // as expected
-	showPerson(currentItem); // item is undefined. Why?
-}); // Same showPerson() that works for prevBtn and nextBtn 🤔
-// and even here item provides author job and info
-// Not connectivity issue.
+	// currentItem = reviews[Math.floor(Math.random() * reviews.length)];
+	currentItem = Math.floor(Math.random() * reviews.length); // Teacher's line of code
+	console.log(img);
+	console.log(currentItem);
+	showPerson(currentItem);
+});
