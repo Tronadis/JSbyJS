@@ -93,7 +93,6 @@ filterBtns.forEach(function (btn) {
 			displayMenuItems(menu);
 		} else {
 			displayMenuItems(menuCategory);
-			console.log(menuCategory);
 		}
 	});
 });
