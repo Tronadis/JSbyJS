@@ -85,9 +85,26 @@ const btnContainer = document.querySelector('.btn-container');
 
 window.addEventListener('DOMContentLoaded', function () {
 	displayMenuItems(menu);
+	displayMenuButtons();
+});
 
-	// Create filter buttons dynamically
+function displayMenuItems(menuItems) {
+	let displayMenu = menuItems.map(function (item) {
+		return `<article class="menu-item">
+			<img class="photo" src=${item.img} alt=${item.title} />
+			<header>
+			<div class="item-info"><h4>${item.title}</h4></div>
+			<h4 class="price">$${item.price}</h4>
+			</header>
+			<p class="item-text">${item.desc}</p>
+			</article>`;
+	});
+	displayMenu = displayMenu.join('');
+	sectionCenter.innerHTML = displayMenu;
+}
 
+// Create filter buttons dynamically
+function displayMenuButtons() {
 	// Create array of unique values:
 	const categorized = menu.map(function (item) {
 		return item.category;
@@ -118,6 +135,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	btnContainer.innerHTML = categoryBtns;
 
 	const filterBtns = document.querySelectorAll('.filter-btn');
+	// In this case, document could also be btnContainer.
 
 	filterBtns.forEach(function (btn) {
 		btn.addEventListener('click', function (e) {
@@ -134,19 +152,4 @@ window.addEventListener('DOMContentLoaded', function () {
 			}
 		});
 	});
-});
-
-function displayMenuItems(menuItems) {
-	let displayMenu = menuItems.map(function (item) {
-		return `<article class="menu-item">
-			<img class="photo" src=${item.img} alt=${item.title} />
-			<header>
-			<div class="item-info"><h4>${item.title}</h4></div>
-			<h4 class="price">$${item.price}</h4>
-			</header>
-			<p class="item-text">${item.desc}</p>
-			</article>`;
-	});
-	displayMenu = displayMenu.join('');
-	sectionCenter.innerHTML = displayMenu;
 }
