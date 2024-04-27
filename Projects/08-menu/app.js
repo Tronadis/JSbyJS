@@ -90,13 +90,16 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function displayMenuItems(menuItems) {
 	let displayMenu = menuItems.map(function (item) {
-		return `<article class="menu-item">
-			<img class="photo" src=${item.img} alt=${item.title} />
-			<header>
-			<div class="item-info"><h4>${item.title}</h4></div>
-			<h4 class="price">$${item.price}</h4>
-			</header>
-			<p class="item-text">${item.desc}</p>
+		return `
+			<article class="menu-item">
+				<img class="photo" src=${item.img} alt=${item.title} />
+				<div class="item-info">
+					<header>
+						<h4>${item.title}</h4>
+						<h4 class="price">$${item.price}</h4>
+					</header>
+					<p class="item-text">${item.desc}</p>
+				</div>
 			</article>`;
 	});
 	displayMenu = displayMenu.join('');
