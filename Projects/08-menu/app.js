@@ -153,3 +153,42 @@ function displayMenuButtons() {
 		});
 	});
 }
+
+// Alternative, using event bubbling
+// courtesy fellow pupil Witek:
+/*
+const section = document.querySelector(".section-center"); 
+const btnCont = document.querySelector(".btn-container");
+let meals=["all"], menu.forEach((item)=>{if (!meals.includes(item.category)) meals.push(item.category)});
+
+window.addEventListener("DOMContentLoaded", () => {  
+	 section.innerHTML = items(menu);
+	 btnCont.innerHTML = meals.map(
+		meal=>`<button type="button" class="filter-btn" data-id="${meal}">${meal}</button>`
+		).join(""); 
+	});
+
+btnCont.addEventListener('click',(e)=>{  
+	let attr = e.target.getAttribute('data-id');  
+	if (attr=="all"){
+		section.innerHTML = items(menu);
+	}   else{   
+		const selected = menu.filter(it=>it.category==attr);  
+		section.innerHTML = items(selected);
+	} 
+});
+		function items(arr) {   
+			return arr.map((item) =>        
+			 `<article class="menu-item">     
+			 	<img src=${item.img} alt="menu item" class="photo" />     
+				<div class="item-info">       
+					<header>         
+						<h4>${item.title}</h4>         
+						<h4 class="price">${item.price}</h4>       
+					</header>       
+					<p class="item-text"> ${item.desc} </p>     
+				</div>     
+			</article>`     
+			).join(""); 
+		};
+		*/
