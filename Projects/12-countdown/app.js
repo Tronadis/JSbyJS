@@ -26,7 +26,14 @@ const months = [
   const deadline = document.querySelector('.deadline');
   const timeLevel = document.querySelectorAll('.deadline-format h4');
 
-  let futureDate = new Date(2024,8,7,0);
+  let presentDate = new Date();
+  let presentYear = presentDate.getFullYear();
+  let presentMonth = presentDate.getMonth();
+  let presentDay = presentDate.getDate();
+  // let futureDate = new Date(2024,8,7,0);
+  const futureDate = new Date(presentYear, presentMonth, presentDay + 10, 11, 30, 0);
+  console.log(`now: ${presentDate}`);
+  console.log(`then: ${futureDate}`);
 
   const weekday = weekdays[futureDate.getDay()];
   const date = futureDate.getDate();
