@@ -12,7 +12,8 @@ let editFlag = false;
 let editID = "";
 
 // ****** EVENT LISTENERS **********
-form.addEventListener("submit", addItem);
+form.addEventListener('submit', addItem);
+clearBtn.addEventListener('click', clearItems);
 
 // ****** FUNCTIONS **********
 function addItem (e) {
@@ -60,11 +61,25 @@ function setBackToDefault() {
     editFlag = false;
     editID = "";
     submitBtn.textContent = "submit";
-};
+}
+
+function clearItems() {
+    const items = document.querySelectorAll('.grocery-item');
+    list.innerHTML = ""; // or else:
+    // if (items.length > 0) {
+    //     items.forEach(function (item) {
+    //         list.removeChild(item);
+    //     });
+    // }
+    container.classList.remove("show-container");
+    displayAlert("the list is empty", "danger");
+    setBackToDefault();
+    // localStorage.removeItem('list');
+}
 
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value) {
     console.log("added to local storage");
-};
+}
 
 // ****** SETUP ITEMS **********
