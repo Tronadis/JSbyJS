@@ -34,13 +34,21 @@ function addItem (e) {
                 </div>
         `;
         list.appendChild(element);
-        displayAlert(`${value} added to the list`, "success");
+        displayAlert(`"${value}" added to the list`, "success");
         container.classList.add("show-container");
         addToLocalStorage(id,value);
         setBackToDefault();
+
+        const deleteBtn = element.querySelector('.delete-btn');
+        const editBtn = element.querySelector('.edit-btn');
+        deleteBtn.addEventListener('click', deleteItem);
+        editBtn.addEventListener('click', editItem);
         
-    } else if(value && editFlag) {
-        console.log("editing");
+    } else if(value && editFlag) { // continues the work of `editItem()`.
+        editElement.innerHTML = value;
+        displayAlert('changed!', 'success');
+        // editLocalStorage(editID, value);
+        setBackToDefault();
     } else {
         displayAlert("please enter value", "danger");
     }
@@ -63,6 +71,29 @@ function setBackToDefault() {
     submitBtn.textContent = "submit";
 }
 
+function editItem(e) {
+    const element = e.currentTarget.parentElement.parentElement;
+    editElement = e.currentTarget.parentElement.previousElementSibling;
+
+    grocery.value = editElement.innerHTML;
+    editFlag = true;
+    editID = editElement.dataset.id;
+    submitBtn.textContent = "edit";
+    // continued in `addItem()`'s `else if(value && editFlag)` conditional.
+}
+function deleteItem(e) {
+    const element = e.currentTarget.parentElement.parentElement;
+    const id = element.dataset.id;
+    const erstwhileValue = e.currentTarget.parentElement.previousElementSibling.innerText;
+    list.removeChild(element);
+    if (list.children.length === 0) {
+        container.classList.remove("show-container");
+    }
+    displayAlert(`"${erstwhileValue}" removed`, "danger");
+    setBackToDefault();
+    // removeFromLocalSorage(id);
+}
+
 function clearItems() {
     const items = document.querySelectorAll('.grocery-item');
     list.innerHTML = ""; // or else:
@@ -72,7 +103,7 @@ function clearItems() {
     //     });
     // }
     container.classList.remove("show-container");
-    displayAlert("the list is empty", "danger");
+    displayAlert("the list is now empty", "success");
     setBackToDefault();
     // localStorage.removeItem('list');
 }
@@ -81,5 +112,8 @@ function clearItems() {
 function addToLocalStorage(id, value) {
     console.log("added to local storage");
 }
+// function removeFromLocalStorage(id) {};
+// function editLocalStorage(id, value) {};
+
 
 // ****** SETUP ITEMS **********
