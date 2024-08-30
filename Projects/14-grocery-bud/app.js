@@ -76,6 +76,7 @@ function editItem(e) {
     editElement = e.currentTarget.parentElement.previousElementSibling;
 
     grocery.value = editElement.innerHTML;
+    grocery.focus();
     editFlag = true;
     editID = editElement.dataset.id;
     submitBtn.textContent = "edit";
