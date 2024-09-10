@@ -47,7 +47,7 @@ function addItem(e) {
 		// continues the work of `editItem()`.
 		editElement.innerHTML = value;
 		displayAlert('changed!', 'success');
-		// editLocalStorage(editID, value);
+		editLocalStorage(editID, value);
 		setBackToDefault();
 	} else {
 		displayAlert('please enter value', 'danger');
@@ -77,7 +77,7 @@ function editItem(e) {
 	grocery.value = editElement.innerHTML;
 	grocery.focus();
 	editFlag = true;
-	editID = editElement.dataset.id;
+	editID = element.dataset.id;
 	submitBtn.textContent = 'edit';
 	// continued in `addItem()`'s `else if(value && editFlag)` conditional.
 }
@@ -112,7 +112,6 @@ function clearItems() {
 function addToLocalStorage(id, value) {
 	const grocery = { id, value };
 	let items = getLocalStorage();
-	console.log(items);
 	items.push(grocery);
 	localStorage.setItem('list', JSON.stringify(items));
 }
@@ -124,9 +123,17 @@ function removeFromLocalStorage(id) {
 		}
 	});
 	localStorage.setItem('list', JSON.stringify(items));
-	// console.log(items);
 }
-// function editLocalStorage(id, value) {};
+function editLocalStorage(id, value) {
+	let items = getLocalStorage();
+	items = items.map(function (item) {
+		if (item.id === id) {
+			item.value = value;
+		}
+		return item;
+	});
+	localStorage.setItem('list', JSON.stringify(items));
+}
 
 function getLocalStorage() {
 	return localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];
