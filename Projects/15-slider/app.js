@@ -28,6 +28,12 @@ function changeBtnNames() {
 	} else {
 		nextBtn.innerText = `next`;
 	}
+	if (counter === 1) {
+		prevBtn.innerText = `first`;
+	}
+	if (counter === slides.length - 2) {
+		nextBtn.innerText = `last`;
+	}
 }
 prevBtn.innerText = `last`;
 // working with the slides - go in a circle
