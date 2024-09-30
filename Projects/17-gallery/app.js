@@ -11,7 +11,6 @@ function Gallery(element) {
 	this.list = [...element.querySelectorAll('.img')];
 	this.modal = getElement('.modal');
 	this.mainImg = getElement('.main-img');
-	this.modalImg = getElement('.modal-img');
 	this.imageName = getElement('.image-name');
 	this.modalImages = getElement('.modal-images');
 	this.closeBtn = getElement('.close-btn');
