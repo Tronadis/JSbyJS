@@ -16,6 +16,9 @@ function Gallery(element) {
 	this.closeBtn = getElement('.close-btn');
 	this.nextBtn = getElement('.next-btn');
 	this.prevBtn = getElement('.prev-btn');
+	this.closeModal = this.closeModal.bind(this);
+	this.toPrevImage = this.toPrevImage.bind(this);
+	this.toNextImage = this.toNextImage.bind(this);
 	// one way:
 	this.container.addEventListener(
 		'click',
@@ -42,6 +45,9 @@ Gallery.prototype.openModal = function (selectedImage, list) {
 		})
 		.join(' ');
 	this.modal.classList.add('open');
+	this.closeBtn.addEventListener('click', this.closeModal);
+	this.prevBtn.addEventListener('click', this.toPrevImage);
+	this.nextBtn.addEventListener('click', this.toNextImage);
 };
 Gallery.prototype.setMainImage = function (selectedImage) {
 	this.mainImg.src = selectedImage.src;
@@ -56,6 +62,16 @@ Gallery.prototype.setMainImage = function (selectedImage) {
 	// in any case:
 	this.imageName.textContent = selectedImage.title;
 };
+Gallery.prototype.closeModal = function (e) {
+	// e.target.parentElement.parentElement.classList.remove('open');
+	// e.target.closest('.modal').classList.remove('open');
+	this.modal.classList.remove('open');
+	this.closeBtn.removeEventListener('click', this.closeModal);
+	this.prevBtn.removeEventListener('click', this.toPrevImage);
+	this.nextBtn.removeEventListener('click', this.toNextImage);
+};
+Gallery.prototype.toPrevImage = function () {};
+Gallery.prototype.toNextImage = function () {};
 
 const nature = new Gallery(getElement('.nature'));
 const city = new Gallery(getElement('.city'));
