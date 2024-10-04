@@ -70,8 +70,20 @@ Gallery.prototype.closeModal = function (e) {
 	this.prevBtn.removeEventListener('click', this.toPrevImage);
 	this.nextBtn.removeEventListener('click', this.toNextImage);
 };
-Gallery.prototype.toPrevImage = function () {};
-Gallery.prototype.toNextImage = function () {};
+Gallery.prototype.toPrevImage = function () {
+	const selected = this.modalImages.querySelector('.selected');
+	const prevImage = selected.previousElementSibling || this.modalImages.lastElementChild;
+	selected.classList.remove('selected');
+	prevImage.classList.add('selected');
+	this.setMainImage(prevImage);
+};
+Gallery.prototype.toNextImage = function () {
+	const selected = this.modalImages.querySelector('.selected');
+	const nextImage = selected.nextElementSibling || this.modalImages.firstElementChild;
+	selected.classList.remove('selected');
+	nextImage.classList.add('selected');
+	this.setMainImage(nextImage);
+};
 
 const nature = new Gallery(getElement('.nature'));
 const city = new Gallery(getElement('.city'));
