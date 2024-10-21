@@ -10,7 +10,14 @@ Global Styles
 	--clr-primary: #d23669;
 	--clr-grey: #64748b;
 }
-
+/* Teacher's better way: */
+.dark-theme {
+	--clr-bcg: #282c35;
+	--clr-font: #fff;
+	/* lighter hues for contrast: */
+	--clr-primary: #ffa7c4;
+	--clr-grey: #cbd5e1;
+}
 *,
 ::after,
 ::before {
@@ -26,6 +33,11 @@ body {
 	line-height: 1.5;
 	font-size: 0.875rem;
 	transition: all 0.3s linear;
+}
+/* my attempt (works): */
+.my-dark-theme body {
+	background: var(--clr-font);
+	color: var(--clr-bcg);
 }
 
 /*
