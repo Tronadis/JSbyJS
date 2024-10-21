@@ -26,7 +26,10 @@ const articlesContainer = document.querySelector('.articles');
 const articlesData = articles
 	.map((article) => {
 		const { title, date, length, snippet } = article;
-		const formattedDate = moment(date).format('MMMM, Do, YYYY');
+		// format date using momentjs (legacy):
+		// const formattedDate = moment(date).format('MMMM, Do, YYYY');
+		// format date using dayjs:
+		const formattedDate = dayjs(date).format('MMMM, DD, YYYY');
 		return `
 			<article class="post">
 				<h2>${title}</h2>
