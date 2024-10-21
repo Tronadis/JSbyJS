@@ -25,13 +25,12 @@ btn.addEventListener('click', () => {
 const articlesContainer = document.querySelector('.articles');
 const articlesData = articles
 	.map((article) => {
-		console.log(article);
 		const { title, date, length, snippet } = article;
-		// TODO: format the date
+		const formattedDate = moment(date).format('MMMM, Do, YYYY');
 		return `
 			<article class="post">
 				<h2>${title}</h2>
-				<div class="post-info"><span>${date}</span><span>${length}</span></div>
+				<div class="post-info"><span>${formattedDate}</span><span>${length} min read</span></div>
 				<p>${snippet}</p>
 			</article>
 	`;
