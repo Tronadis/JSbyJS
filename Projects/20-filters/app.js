@@ -22,3 +22,14 @@ const displayProducts = () => {
 		.join('');
 };
 displayProducts();
+
+const inputForm = document.querySelector('.input-form');
+const searchInput = document.querySelector('.search-input');
+
+inputForm.addEventListener('keyup', () => {
+	const inputValue = searchInput.value;
+	filteredProducts = products.filter((product) => {
+		return product.title.toLowerCase().includes(inputValue.toLowerCase());
+	});
+	displayProducts();
+});
