@@ -2,8 +2,8 @@ console.log('filters project');
 
 let filteredProducts = [...products];
 
+// display the products:
 const productsContainer = document.querySelector('.products-container');
-
 const displayProducts = () => {
 	if (filteredProducts.length < 1) {
 		productsContainer.innerHTML = `
@@ -28,9 +28,9 @@ const displayProducts = () => {
 };
 displayProducts();
 
+// search by input:
 const inputForm = document.querySelector('.input-form');
 const searchInput = document.querySelector('.search-input');
-
 inputForm.addEventListener('keyup', () => {
 	const inputValue = searchInput.value;
 	filteredProducts = products.filter((product) => {
@@ -38,3 +38,14 @@ inputForm.addEventListener('keyup', () => {
 	});
 	displayProducts();
 });
+
+// filter by company:
+const companyButtons = document.querySelector('.companies');
+const displayButtons = () => {
+	const companiesList = ['any', ...new Set(products.map((product) => product.company))];
+	companyButtons.innerHTML = companiesList
+		.map((company) => `<button class="company-btn" data-id="${company}">${company}</button>`)
+		.join('');
+};
+displayButtons();
+// TODO: filter on click
