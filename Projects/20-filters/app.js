@@ -31,6 +31,7 @@ displayProducts();
 // search by input:
 const inputForm = document.querySelector('.input-form');
 const searchInput = document.querySelector('.search-input');
+searchInput.value = '';
 inputForm.addEventListener('keyup', () => {
 	const inputValue = searchInput.value;
 	filteredProducts = products.filter((product) => {
