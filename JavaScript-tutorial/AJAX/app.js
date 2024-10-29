@@ -75,11 +75,15 @@ jsonBtn.addEventListener('click', () => getJsonData(jsonUrl));
 		.catch((err) => console.log(err));
 }); */
 
-// - with async/await
+// - with async/await (+ wrapped in try/catch)
 fetchBtn.addEventListener('click', async () => {
-	const response = await fetch(jsonUrl);
-	const data = await response.json();
-	displayItems(data);
+	try {
+		const response = await fetch(jsonUrl);
+		const data = await response.json();
+		displayItems(data);
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 const displayItems = (items) => {
