@@ -7,15 +7,23 @@ const result = document.querySelector('.result');
 btn.addEventListener('click', () => fetchDadJoke());
 
 const fetchDadJoke = async () => {
-	result.textContent = 'Loading...';
-	const response = await fetch(url, {
-		headers: {
-			Accept: 'application/json',
-			'User-Agent': 'learning-app',
-		},
-	});
-	const data = await response.json();
-	result.textContent = data.joke;
+	try {
+		result.textContent = 'Loading...';
+		const response = await fetch(url, {
+			headers: {
+				Accept: 'application/json',
+				'User-Agent': 'learning-app',
+			},
+		});
+		if (!response.ok) {
+			throw new Error('Whoops... check the URL.');
+		}
+		const data = await response.json();
+		result.textContent = data.joke;
+	} catch (error) {
+		result.textContent = 'There was an error.';
+		console.log(error.message);
+	}
 };
 
 fetchDadJoke(); // fetch right away on page load
