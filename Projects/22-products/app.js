@@ -43,5 +43,3 @@ const start = async () => {
 	displayProducts(data);
 };
 start();
-
-fetchProducts();
