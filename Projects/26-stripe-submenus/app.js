@@ -21,17 +21,11 @@ closeBtn.addEventListener('click', () => {
 sidebarLinks.innerHTML = sublinks
 	.map((item) => {
 		const { page, links } = item;
-		return `
-            <article>
-				<h4>${page}</h4>
-				<div class="sidebar-sublinks">${links
-					.map(
-						(link) =>
-							`<a href="${link.url}">
-                                <i class="${link.icon}"></i>${link.label}
-                            </a>`
-					)
-					.join('')}</div>
-			</article>`;
+		return html` <article>
+			<h4>${page}</h4>
+			<div class="sidebar-sublinks">
+				${links.map((link) => html`<a href="${link.url}"><i class="${link.icon}"></i>${link.label}</a>`).join('')}
+			</div>
+		</article>`;
 	})
 	.join('');
