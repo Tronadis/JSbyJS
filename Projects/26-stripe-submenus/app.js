@@ -41,10 +41,15 @@ linkBtns.forEach((btn) => {
 			const { page, links } = tempPage;
 			submenu.style.left = `${center}px`;
 			submenu.style.top = `${bottom}px`;
+
+			let columns = 'col-2';
+			if (links.length === 3) columns = 'col-3';
+			if (links.length > 3) columns = 'col-4';
+
 			submenu.innerHTML = /* html */ `
 				<section>
 					<h4>${page}</h4>
-					<div class="submenu-center col-2">
+					<div class="submenu-center ${columns}">
 						${links.map((link) => /* html */ `<a href="${link.url}"><i class="${link.icon}"></i>${link.label}</a>`).join('')}
 					</div>
 				</section>`;
