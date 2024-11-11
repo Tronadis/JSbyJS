@@ -36,8 +36,23 @@ linkBtns.forEach((btn) => {
 		const tempBtn = e.currentTarget.getBoundingClientRect();
 		const center = (tempBtn.left + tempBtn.right) / 2;
 		const bottom = tempBtn.bottom - 3;
-		submenu.style.left = `${center}px`;
-		submenu.style.top = `${bottom}px`;
-		submenu.classList.add('show');
+
+		const tempPage = sublinks.find(({ page }) => page === text);
+		console.log(tempPage);
+		if (tempPage) {
+			const { page, links } = tempPage;
+			submenu.style.left = `${center}px`;
+			submenu.style.top = `${bottom}px`;
+			console.log(page, links);
+
+			submenu.innerHTML = /* html */ `
+				<section>
+					<h4>${page}</h4>
+					<div class="submenu-center col-2">
+						${links.map((link) => /* html */ `<a href="${link.url}"><i class="${link.icon}"></i>${link.label}</a>`).join('')}
+					</div>
+				</section>`;
+			submenu.classList.add('show');
+		} // But do not show if no data attached to target
 	});
 });
