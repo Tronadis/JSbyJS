@@ -8,8 +8,8 @@ const sidebarWrapper = document.querySelector('.sidebar-wrapper');
 const sidebarLinks = document.querySelector('.sidebar-links');
 const linkBtns = [...document.querySelectorAll('.link-btn')];
 const submenu = document.querySelector('.submenu');
-// const hero = document.querySelector('.hero');
-// const nav = document.querySelector('.nav');
+const hero = document.querySelector('.hero');
+const nav = document.querySelector('.nav');
 
 toggleBtn.addEventListener('click', () => {
 	sidebarWrapper.classList.toggle('show');
@@ -36,15 +36,11 @@ linkBtns.forEach((btn) => {
 		const tempBtn = e.currentTarget.getBoundingClientRect();
 		const center = (tempBtn.left + tempBtn.right) / 2;
 		const bottom = tempBtn.bottom - 3;
-
 		const tempPage = sublinks.find(({ page }) => page === text);
-		console.log(tempPage);
 		if (tempPage) {
 			const { page, links } = tempPage;
 			submenu.style.left = `${center}px`;
 			submenu.style.top = `${bottom}px`;
-			console.log(page, links);
-
 			submenu.innerHTML = /* html */ `
 				<section>
 					<h4>${page}</h4>
@@ -55,4 +51,12 @@ linkBtns.forEach((btn) => {
 			submenu.classList.add('show');
 		} // But do not show if no data attached to target
 	});
+});
+hero.addEventListener('mouseover', function (e) {
+	submenu.classList.remove('show');
+});
+nav.addEventListener('mouseover', function (e) {
+	if (!e.target.classList.contains('link-btn')) {
+		submenu.classList.remove('show');
+	}
 });
