@@ -239,7 +239,7 @@ Wikipedia
 
 .error {
 	text-align: center;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	color: var(--red-dark);
 }
 
