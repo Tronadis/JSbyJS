@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Going to Comfy...</title>
+	</head>
+	<body>
+		<div style="padding: auto">
+			<h1>Redirecting to Comfy Store...</h1>
+			<p><a href="../">No, thank you</a></p>
+		</div>
+		<script>
+			const toComfyStore = () => {
+				window.location.href = 'http://127.0.0.1:5500/';
+			};
+			setTimeout(toComfyStore, 5000);
+			//
+			// Note: this works with Ritwik Dey's Live Server,
+			// but not with MS Live Preview.
+			//
+			// This page is for local convenience.
+		</script>
+	</body>
+</html>
